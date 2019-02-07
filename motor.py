@@ -7,13 +7,15 @@ import pigpio
 pi = pigpio.pi()
 
 # Set the three pins used to outputs.
-pi.set_mode(20, pigpio.OUTPUT)
-pi.set_mode(21, pigpio.OUTPUT)
-pi.set_mode(16, pigpio.OUTPUT)
+
+pi.set_mode(20, pigpio.OUTPUT) # Motor enable
+pi.set_mode(21, pigpio.OUTPUT) # forward
+pi.set_mode(16, pigpio.OUTPUT) # reverse
 
 # Write the motor enable
 pi.write(21, 1)
 
+# Main body - put a try around it to allow clean up.
 try:
     while True:
 
